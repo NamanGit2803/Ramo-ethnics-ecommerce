@@ -8,7 +8,7 @@ export function Footer() {
             <div className="container mx-auto px-4 py-16">
                 <div className="grid gap-12 md:grid-cols-4">
                     <div>
-                        <Image src='/assets/logo.png' width={50} height={50} className="h-12 w-1/2" alt={process.env.NEXT_PUBLIC_BRAND_Name}/>
+                        <Image src='/assets/logo.png' width={50} height={50} className="h-12 w-1/2" alt={process.env.NEXT_PUBLIC_BRAND_NAME}/>
 
                         <p className="text-sm leading-relaxed text-muted-foreground lg:mt-3">
                             Premium women's ethnic wear, crafted with care and timeless
@@ -54,7 +54,7 @@ export function Footer() {
 
                 <div className="mt-12 flex flex-col justify-between gap-2 border-t border-border pt-6 text-xs text-muted-foreground sm:flex-row">
                     <p>
-                        © {new Date().getFullYear()} {process.env.NEXT_PUBLIC_BRAND_Name}. Handcrafted in India.
+                        © {new Date().getFullYear()} {process.env.NEXT_PUBLIC_BRAND_NAME}. Handcrafted in India.
                     </p>
 
                     <p>Made with care</p>
