@@ -8,7 +8,9 @@ export function Footer() {
             <div className="container mx-auto px-4 py-16">
                 <div className="grid gap-12 md:grid-cols-4">
                     <div>
+                        <Link href='/'>
                         <Image src='/assets/logo.png' width={50} height={50} className="h-12 w-1/2" alt={process.env.NEXT_PUBLIC_BRAND_NAME}/>
+                        </Link>
 
                         <p className="text-sm leading-relaxed text-muted-foreground lg:mt-3">
                             Premium women's ethnic wear, crafted with care and timeless

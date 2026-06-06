@@ -1,11 +1,12 @@
 import ShopContent from "@/components/shop/ShopContent";
 
 
-export default function Shop({searchParams}) {
+export default async function Shop({searchParams}) {
  
+    const params = await searchParams;
 
     return (
-       <ShopContent categoty={searchParams.category} q={searchParams.q} />
+       <ShopContent categoty={params.category} q={params.q} />
     );
 }
 
