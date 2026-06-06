@@ -7,48 +7,19 @@ import {
     SheetTitle,
     SheetTrigger,
 } from "@/components/ui/sheet"
-import { Menu } from "lucide-react";
+import { Menu, ChevronDown } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { cn } from "@/lib/utils";
 import {
     Collapsible,
     CollapsibleContent,
     CollapsibleTrigger,
 } from "@/components/ui/collapsible"
 
-const nav = [
-    { href: "/", label: "Home" },
-    { href: "/shop", label: "Shop" },
-    { href: "/collections/sarees", label: "Sarees" },
-    { href: "/shop?category=Lehengas", label: "Lehengas" },
-    // {
-    //     label: "Collections", children: [
-    //         {
-    //             href: "/collections/new-arrivals",
-    //             label: "New Arrivals",
-    //         },
 
-    //         {
-    //             href: "/collections/festive-wear",
-    //             label: "Festive Wear",
-    //         },
-
-    //         {
-    //             href: "/collections/wedding",
-    //             label: "Wedding Collection",
-    //         },
-
-    //         {
-    //             href: "/collections/bestsellers",
-    //             label: "Best Sellers",
-    //         },
-    //     ]
-    // },
-    { href: "/contact", label: "Contact" },
-];
-
-const MobileNav = () => {
+const MobileNav = ({nav}) => {
 
     const pathName = usePathname()
     const [open, setOpen] = useState(false);
@@ -88,22 +59,35 @@ const MobileNav = () => {
                 <SheetTitle />
 
                 <nav className="flex flex-col gap-5">
-                    {nav.map((item, i) => (
-                        <SheetClose key={i} asChild>
-                            <Link
-                                href={item.href}
-                                className={`text-lg transition-colors ${isActive(item.href) ? "text-primary" : "text-foreground/80"} hover:text-primary`}>{item.label}
-                            </Link>
-                        </SheetClose>
+                    {nav.map((item) => (
+                        item.children ? (
+                            <Collapsible key={item.label}>
+                                <CollapsibleTrigger className="flex w-full text-foreground/80 items-center justify-between text-lg">
+                                    {item.label}
+                                    <ChevronDown className="h-4 w-4 ml-3" />
+                                </CollapsibleTrigger>
+                                <CollapsibleContent>
+                                    <div className="mt-3 ml-4 flex flex-col gap-3">
+                                        {item.children.map((child) => (
+                                            <SheetClose key={child.href} asChild>
+                                                <Link
+                                                    href={child.href}
+                                                    className={cn("text-muted-foreground hover:text-primary", isActive(child.href) ? "text-primary" : "text-muted-foreground")}>
+                                                    {child.label}
+                                                </Link>
+                                            </SheetClose>
+                                        ))}
+                                    </div>
+                                </CollapsibleContent>
+                            </Collapsible>
+                        ) : (
+                            <SheetClose key={item.href} asChild>
+                                <Link href={item.href} className={cn("text-lg text-foreground/80 hover:text-primary", isActive(item.href) ? "text-primary" : "text-foreground/80")}>
+                                    {item.label}
+                                </Link>
+                            </SheetClose>
+                        )
                     ))}
-                    <SheetClose asChild>
-                        <Link
-                            href="/account"
-                            className="text-lg"
-                        >
-                            Account
-                        </Link>
-                    </SheetClose>
                 </nav>
             </SheetContent>
         </Sheet>
