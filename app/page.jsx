@@ -9,6 +9,7 @@ import {
   Sparkles,
   Star,
 } from "lucide-react";
+import Hero from "@/components/home/Hero";
 
 import { products, categories } from "@/lib/products";
 import { ProductCard } from "@/components/products/ProductCard";
@@ -20,79 +21,7 @@ export default function Home() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative overflow-hidden">
-        <div className="container mx-auto grid lg:grid-cols-2 gap-8 lg:gap-16 px-4 py-12 lg:py-24 items-center">
-          <div className="space-y-6 lg:space-y-8 order-2 lg:order-1">
-            <p className="text-xs tracking-[0.3em] uppercase text-primary">
-              Festive Edit · 2026
-            </p>
-
-            <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl leading-[1.05]">
-              Drape yourself in{" "}
-              <em className="text-primary not-italic">timeless</em> elegance.
-            </h1>
-
-            <p className="text-muted-foreground max-w-md leading-relaxed">
-              A quiet luxury collection of sarees, lehengas and kurtis —
-              handpicked fabrics, gentle palettes, and craftsmanship that
-              whispers.
-            </p>
-
-            <div className="flex flex-wrap gap-4 pt-2">
-              <Link
-                href="/shop"
-                className="group inline-flex items-center gap-2 bg-primary text-primary-foreground px-7 py-3.5 text-sm tracking-widest uppercase hover:bg-primary/90 transition shadow-soft"
-              >
-                Shop Now
-                <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-              </Link>
-
-              <Link
-                href="/shop"
-                className="inline-flex items-center gap-2 border border-foreground/30 px-7 py-3.5 text-sm tracking-widest uppercase hover:bg-foreground hover:text-background transition"
-              >
-                Explore Collection
-              </Link>
-            </div>
-
-            <div className="flex items-center gap-6 pt-4 text-xs text-muted-foreground">
-              <span className="flex items-center gap-1.5">
-                <Star className="h-3.5 w-3.5 fill-gold text-gold" />
-                4.8 / 5 by 12k+ women
-              </span>
-
-              <span>Free shipping · Easy returns</span>
-            </div>
-          </div>
-
-          <div className="relative order-1 lg:order-2">
-            <div
-              className="absolute -inset-6 bg-gold/20 blur-3xl rounded-full"
-              aria-hidden
-            />
-
-            <div className="relative aspect-[4/5] overflow-hidden rounded-md shadow-luxe">
-              <Image
-                src="/assets/hero-saree.jpg"
-                alt="Woman in maroon silk saree"
-                fill
-                className="object-cover"
-                priority
-              />
-            </div>
-
-            <div className="absolute -bottom-6 -left-6 hidden sm:block bg-background border border-border/60 px-6 py-4 shadow-luxe rounded">
-              <p className="text-xs tracking-widest uppercase text-muted-foreground">
-                Bestseller
-              </p>
-
-              <p className="font-serif text-lg">
-                Maroon Banarasi Silk
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+    <Hero/>
 
       {/* Trust strip */}
       <section className="border-y border-border bg-secondary/40">
